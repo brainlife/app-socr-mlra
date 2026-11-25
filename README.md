@@ -10,7 +10,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -20,26 +20,26 @@ Builds a design matrix from the brainlife metadata of each input (one column per
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/anat/t1w` |
-| 📤 **Outputs** | `raw` |
-| 🐳 **Container** | `brainlife/fsl:5.0.9` |
-| ⚙️ **Resources** | 4 CPUs · 16 GB memory |
-| 🔗 **Run it** | [doi.org/10.25663/bl.app.84](https://doi.org/10.25663/bl.app.84) |
+| **Inputs** | `neuro/anat/t1w` |
+| **Outputs** | `raw` |
+| **Container** | `brainlife/fsl:5.0.9` |
+| **Resources** | 4 CPUs · 16 GB memory |
+| **Run it** | [doi.org/10.25663/bl.app.84](https://doi.org/10.25663/bl.app.84) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `t1` | `neuro/anat/t1w` | yes | T1-weighted images of several subjects; one row of the design matrix per image. All images in the same space; the SOCR call uses -dim 220 220 220. Each input needs the metadata fields listed in regressors. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
 | `output` | `raw` | SOCR regression outputs (ANALYZE files), including the intercept Beta, TStat, Pvalue and RPartCorr maps also converted to NIfTI, and the design matrix dm.txt. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (1)</summary>
+<summary><b>Parameters</b> (1)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -49,9 +49,9 @@ Builds a design matrix from the brainlife metadata of each input (one column per
 
 <!-- brainlife-app:end -->
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/bl.app.84](https://doi.org/10.25663/bl.app.84), select several T1-weighted images (one per subject), set `regressors` to a comma-separated list of brainlife.io metadata fields (default `age,sex`) and press **Execute**. The App:
 
@@ -62,7 +62,7 @@ Open the App at [doi.org/10.25663/bl.app.84](https://doi.org/10.25663/bl.app.84)
 
 The images must be in a common space, and every regressor must exist as a metadata field on every input. The analysis is run with fixed image dimensions of 220 × 220 × 220.
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqlang.github.io/jq/). FSL 5.0.9 and SOCR 1.0 run inside containers.
 
@@ -86,7 +86,7 @@ You need [Singularity/Apptainer](https://apptainer.org/) and [`jq`](https://jqla
    ./main
    ```
 
-## 📦 Outputs
+## Outputs
 
 ```text
 dm.txt                                       design matrix
@@ -97,11 +97,11 @@ interceptConstant_Intercept_RPartCorr.nii.gz partial-correlation map
 *.img, *.hdr                                 SOCR regression outputs in ANALYZE format
 ```
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`failed to run VolumeMultipleRegression`**: the SOCR regression failed. Check that all images have the same dimensions and that every regressor metadata field is set on every input.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -111,11 +111,11 @@ interceptConstant_Intercept_RPartCorr.nii.gz partial-correlation map
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 - Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. *Scientific Data* 6:69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
-## 👥 Authors
+## Authors
 
 - Soichi Hayashi
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -134,6 +134,6 @@ interceptConstant_Intercept_RPartCorr.nii.gz partial-correlation map
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 [MIT](LICENSE).
